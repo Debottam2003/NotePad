@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const fs = require('fs');
 const cors = require('cors');
+
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -59,6 +60,6 @@ app.get('/newnote/deletenote/:filename', (req, res) => {
     });
 })
 
-app.listen(3003, () => {
-    console.log("Server is Running on port 3003...");
+app.listen(3333, () => {
+    console.log("Server is Running on port 3333...");
 });

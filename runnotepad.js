@@ -28,14 +28,14 @@ app.get('/read_data/:filename', function (req, res) {
     fs.readFile(`./files/${req.params.filename}`, "utf-8", function (err, data) {
         //console.log(data);
         res.render("showdata", { filedata: data, filename: req.params.filename });
-    })
+    });
 });
 app.get('/edit/:filename', function (req, res) {
     fs.readFile(`./files/${req.params.filename}`, "utf-8", function (err, data) {
         res.render('edit', { filename: req.params.filename, filedata: data });
     });
 
-})
+});
 
 app.post('/newnote/edittitle/:filename', (req, res) => {
     //console.log(req.body.newname);
@@ -51,14 +51,14 @@ app.post('/newnote/editnote/:filename', (req, res) => {
         else {
             res.redirect('/');
         }
-    })
+    });
 });
 
 app.get('/newnote/deletenote/:filename', (req, res) => {
     fs.unlink(`./files/${req.params.filename}`, (err) => {
         res.redirect('/')
     });
-})
+});
 
 app.listen(3333, () => {
     console.log("Server is Running on port 3333...");
